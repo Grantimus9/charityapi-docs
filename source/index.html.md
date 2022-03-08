@@ -298,3 +298,57 @@ Search the ~ 2 million charities by search term. This endpoint requires at least
 Parameter | Default | Description
 --------- | ------- | -----------
 term | N/A | Search term. URL-encoded.
+
+
+## Autocomplete
+
+```shell
+curl "https://api.charityapi.org/api/organizations/autocomplete/:term" \
+  -H "apikey: apikeyhere"
+```
+
+> The response is a list of organization names and EINs.
+
+```json
+{
+    "data": [
+        {
+         "name": "MEANS DATABASE INC",
+         "ein": "474262060"
+       },
+       {
+        "name": "MEANS OF GRACE",
+        "ein": "825057778"
+       },
+       {}
+    ]
+}
+```
+
+> No results returns an empty list:
+
+```json
+{
+    "data": []
+}
+```
+<aside class="notice">
+The autocomplete endpoint is only available to paying accounts.
+</aside>
+
+The autocomplete endpoint is designed to power your autocomplete (typeahead) features. This endpoint searches only the name field of all organizations, and is typo-tolerant, making it perfect for enabling your users to search for a charity by name.
+
+You must provide at least 3 characters before results will be returned.
+
+If you require more information about a charity, use the organizations endpoint: `GET https://api.charityapi.org/api/organizations/:ein`
+
+
+### HTTP Request
+
+`GET https://api.charityapi.org/api/organizations/autocomplete/:term`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+term | N/A | Search term. URL-encoded.
