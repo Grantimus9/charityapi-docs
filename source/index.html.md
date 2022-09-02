@@ -286,8 +286,11 @@ curl "https://api.charityapi.org/api/organizations/search/:term" \
 }
 ```
 
-Search the ~ 2 million charities by search term. This endpoint requires at least 3 characters to return results, and will return the top results ordered by relevance and charity size.
+Search the ~ 2 million charities by search term. This endpoint requires at least 3 characters to return results, and will return the top results ordered by relevance and charity size. 
 
+This searches the nonprofit "name" and "sort_name" fields. 
+
+You may optionally filter results further by providing "city" and "state" parameters. 
 
 ### HTTP Request
 
@@ -298,6 +301,8 @@ Search the ~ 2 million charities by search term. This endpoint requires at least
 Parameter | Default | Description
 --------- | ------- | -----------
 term | N/A | Search term. URL-encoded.
+city | null | Filter results to only this city. This field is mildly typo tolerant, and requires at least two characters be provided. 
+state | null | Filter results to only this state code, e.g. "AZ" or "IA". Use "PR" for Puerto Rico.
 
 
 ## Autocomplete
