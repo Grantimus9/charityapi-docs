@@ -419,7 +419,7 @@ curl "https://api.charityapi.org/api/dataimports/recent" \
 }
 ```
 
-You can also retrieve the most recent dataimports by providing "recent" instead of a dataimport ID. This will return an object with 3 keys: 
+You can also retrieve the most recent dataimports by providing the string "recent" instead of a dataimport ID. This will return an object with 3 keys: 
 
 Key | Description | Notes
 --------- | ------- | -----------
