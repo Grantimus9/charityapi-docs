@@ -286,9 +286,9 @@ curl "https://api.charityapi.org/api/organizations/search/:term" \
 }
 ```
 
-Search the ~ 2 million charities by search term. This endpoint requires at least 3 characters to return results, and will return the top results ordered by relevance and charity size. 
+Search the ~ 2 million public charities by search term. This endpoint requires at least 3 characters to return results, and will return the top results ordered by relevance and charity size. 
 
-This searches the nonprofit "name" and "sort_name" fields. 
+This searches the nonprofit "name" and "sort_name" fields. Organizations whose charitable status has lapsed will not appear in search results.
 
 You may optionally filter results further by providing "city" and "state" parameters. 
 
@@ -357,3 +357,147 @@ If you require more information about a charity, use the organizations endpoint:
 Parameter | Default | Description
 --------- | ------- | -----------
 term | N/A | Search term. URL-encoded.
+
+
+# Data Imports
+
+## Get Recent Data Imports 
+
+```shell
+curl "https://api.charityapi.org/api/dataimports/recent" \
+  -H "apikey: apikeyhere"
+```
+> Returns a list of dataimports. 
+
+```json
+{
+    "data": {
+        "in_progress_dataimport": null,
+        "most_recent_complete_dataimport": {
+            "completed": true,
+            "crawled_urls": [
+                "https://www.irs.gov/pub/irs-soi/eo1.csv",
+                "https://www.irs.gov/pub/irs-soi/eo2.csv",
+                "https://www.irs.gov/pub/irs-soi/eo3.csv",
+                "https://www.irs.gov/pub/irs-soi/eo4.csv"
+            ],
+            "id": 357,
+            "inserted_at": "2022-10-17T04:00:00",
+            "name": "Data Import 2022-10-17",
+            "s3_path": "redacted",
+            "s3_urls": "redacted",
+            "to_crawl_urls": [
+                "https://www.irs.gov/pub/irs-soi/eo1.csv",
+                "https://www.irs.gov/pub/irs-soi/eo2.csv",
+                "https://www.irs.gov/pub/irs-soi/eo3.csv",
+                "https://www.irs.gov/pub/irs-soi/eo4.csv"
+            ],
+            "updated_at": "2022-10-17T07:51:42"
+        },
+        "most_recent_dataimport": {
+            "completed": true,
+            "crawled_urls": [
+                "https://www.irs.gov/pub/irs-soi/eo1.csv",
+                "https://www.irs.gov/pub/irs-soi/eo2.csv",
+                "https://www.irs.gov/pub/irs-soi/eo3.csv",
+                "https://www.irs.gov/pub/irs-soi/eo4.csv"
+            ],
+            "id": 357,
+            "inserted_at": "2022-10-17T04:00:00",
+            "name": "Data Import 2022-10-17",
+            "s3_path": "redacted",
+            "s3_urls": "redacted",
+            "to_crawl_urls": [
+                "https://www.irs.gov/pub/irs-soi/eo1.csv",
+                "https://www.irs.gov/pub/irs-soi/eo2.csv",
+                "https://www.irs.gov/pub/irs-soi/eo3.csv",
+                "https://www.irs.gov/pub/irs-soi/eo4.csv"
+            ],
+            "updated_at": "2022-10-17T07:51:42"
+        }
+    }
+}
+```
+
+You can also retrieve the most recent dataimports by providing the string "recent" instead of a dataimport ID. This will return an object with 3 keys: 
+
+Key | Description | Notes
+--------- | ------- | -----------
+in_progress_dataimport | The data import currently in progress, if any | null if none in progress
+most_recent_complete_dataimport | The most recent data import that's complete | N/A
+most_recent_dataimport | The most recent data import regardless of status | N/A
+
+The same data import may appear in multiple keys; for example if it is both the most recent and complete data import.
+
+## Get Data Import By ID 
+
+```shell
+curl "https://api.charityapi.org/api/dataimports/:id" \
+  -H "apikey: apikeyhere"
+```
+
+> Returns a single Data Import. 
+
+```json
+{
+    "data": {
+        "completed": true,
+        "crawled_urls": [
+            "https://www.irs.gov/pub/irs-soi/eo1.csv",
+            "https://www.irs.gov/pub/irs-soi/eo2.csv",
+            "https://www.irs.gov/pub/irs-soi/eo3.csv",
+            "https://www.irs.gov/pub/irs-soi/eo4.csv"
+        ],
+        "id": 355,
+        "inserted_at": "2022-09-19T00:00:00",
+        "name": "Data Import 2022-09-19",
+        "s3_path": "redacted",
+        "s3_urls": "redacted",
+        "to_crawl_urls": [
+            "https://www.irs.gov/pub/irs-soi/eo1.csv",
+            "https://www.irs.gov/pub/irs-soi/eo2.csv",
+            "https://www.irs.gov/pub/irs-soi/eo3.csv",
+            "https://www.irs.gov/pub/irs-soi/eo4.csv"
+        ],
+        "updated_at": "2022-09-19T02:16:04"
+    }
+}
+```
+
+> If a dataimport is currently in progress, it will indicate progress. Active imports do not disrupt the API's availability. 
+
+```json
+{
+    "data": {
+        "completed": false,
+        "crawled_urls": [
+            "https://www.irs.gov/pub/irs-soi/eo1.csv",
+            "https://www.irs.gov/pub/irs-soi/eo2.csv"
+        ],
+        "id": 600,
+        "inserted_at": "2023-09-19T00:00:00",
+        "name": "Data Import 2023-09-19",
+        "s3_path": "redacted",
+        "s3_urls": "redacted",
+        "to_crawl_urls": [
+            "https://www.irs.gov/pub/irs-soi/eo1.csv",
+            "https://www.irs.gov/pub/irs-soi/eo2.csv",
+            "https://www.irs.gov/pub/irs-soi/eo3.csv",
+            "https://www.irs.gov/pub/irs-soi/eo4.csv"
+        ],
+        "updated_at": "2023-09-19T02:16:04"
+    }
+}
+```
+
+> No results returns null:
+
+```json
+{
+    "data": null
+}
+```
+
+Retrieve a dataimport by its ID. 
+
+
