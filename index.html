@@ -361,6 +361,17 @@
               </ul>
           </li>
           <li>
+            <a href="#ntee-codes" class="toc-h1 toc-link" data-title="NTEE Codes">NTEE Codes</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-ntee-codes" class="toc-h2 toc-link" data-title="List NTEE Codes">List NTEE Codes</a>
+                  </li>
+                  <li>
+                    <a href="#get-ntee-category-by-code" class="toc-h2 toc-link" data-title="Get NTEE category By Code">Get NTEE category By Code</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
               <ul class="toc-list-h2">
                   <li>
@@ -863,6 +874,65 @@ The autocomplete endpoint is only available to paying accounts.
 <p>Retrieve a dataimport by its ID. </p>
 <h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET https://api.charityapi.org/api/dataimports/:id</code></p>
+<h1 id='ntee-codes'>NTEE Codes</h1><h2 id='list-ntee-codes'>List NTEE Codes</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.charityapi.org/api/ntee_codes"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"apikey: apikeyhere"</span>
+</code></pre></div>
+<blockquote>
+<p>Returns all NTEE Codes in a list.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X900"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"definition"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U99"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"definition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Use this code for organizations that clearly provide science and technology research services where the major purpose is unclear enough that a more specific code cannot be accurately assigned."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Science &amp; Technology N.E.C."</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V01"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"definition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organizations whose activities focus on influencing public policy within the Social Science Research Institutes, Services major group area. Includes a variety of activities from public education and influencing public opinion to lobbying national and state legislatures."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alliances &amp; Advocacy"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div>
+<p>Lists all NTEE Codes observed in IRS data. Many codes do not have corresponding metadata. There are many NTEE codes, making this a particularly large json response. </p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>GET https://api.charityapi.org/api/ntee_codes</code></p>
+<h2 id='get-ntee-category-by-code'>Get NTEE category By Code</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.charityapi.org/api/ntee_codes/:code"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"apikey: apikeyhere"</span>
+</code></pre></div>
+<blockquote>
+<p>Sample response for https://api.charityapi.org/api/ntee_codes/U99 </p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U99"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"definition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Use this code for organizations that clearly provide science and technology research services where the major purpose is unclear enough that a more specific code cannot be accurately assigned."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Science &amp; Technology N.E.C."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div>
+<blockquote>
+<p>Returns null if there is no matching code </p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>The National Taxonomy of Exempt Entities (NTEE) is a taxonomy designed to classify all nonprofit entities by activity type. </p>
+
+<p>Nonprofits choose the most appropriate code for their activities, and the IRS provides this code in the publication 78 data (tax exempt entities). </p>
+
+<p>For each organization, you will see a <code>ntee_cd</code> NTEE code field that you can then use to lookup the NTEE code for the organization. </p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>GET https://api.charityapi.org/api/ntee_codes/:code</code></p>
 <h1 id='errors'>Errors</h1>
 <blockquote>
 <p>Success with &quot;data&quot; key:</p>
