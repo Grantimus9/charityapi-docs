@@ -429,6 +429,10 @@ most_recent_dataimport | The most recent data import regardless of status | N/A
 
 The same data import may appear in multiple keys; for example if it is both the most recent and complete data import.
 
+### HTTP Request
+
+`GET https://api.charityapi.org/api/dataimports/recent`
+
 ## Get Data Import By ID 
 
 ```shell
@@ -499,6 +503,11 @@ curl "https://api.charityapi.org/api/dataimports/:id" \
 ```
 
 Retrieve a dataimport by its ID. 
+
+### HTTP Request
+
+`GET https://api.charityapi.org/api/dataimports/:id`
+
 
 # NTEE Codes 
 
@@ -578,3 +587,4 @@ For each organization, you will see a `ntee_cd` NTEE code field that you can the
 ### HTTP Request
 
 `GET https://api.charityapi.org/api/ntee_codes/:code`
+
