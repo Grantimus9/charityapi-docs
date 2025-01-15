@@ -323,6 +323,9 @@
             <a href="#organizations" class="toc-h1 toc-link" data-title="Organizations">Organizations</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#list-nonprofits" class="toc-h2 toc-link" data-title="List Nonprofits">List Nonprofits</a>
+                  </li>
+                  <li>
                     <a href="#get-nonprofit-by-ein" class="toc-h2 toc-link" data-title="Get Nonprofit By EIN">Get Nonprofit By EIN</a>
                   </li>
                   <li>
@@ -447,7 +450,101 @@ CharityAPI.org expects all API requests to be authenticated.
 <aside class="notice">
 These are not real keys.
 </aside>
-<h1 id='organizations'>Organizations</h1><h2 id='get-nonprofit-by-ein'>Get Nonprofit By EIN</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.charityapi.org/api/organizations/:ein"</span> <span class="se">\</span>
+<h1 id='organizations'>Organizations</h1><h2 id='list-nonprofits'>List Nonprofits</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.charityapi.org/api/organizations?since=2025-01-01"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"apikey: apikeyhere"</span>
+</code></pre></div>
+<blockquote>
+<p>Successful response is a list of organizations</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+     </span><span class="nl">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20006-1631"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"tax_period"</span><span class="p">:</span><span class="w"> </span><span class="mi">201712</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"subsection"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1629 K ST NW STE 300"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DC"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"sort_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"ruling"</span><span class="p">:</span><span class="w"> </span><span class="mi">201602</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"revenue_amt"</span><span class="p">:</span><span class="w"> </span><span class="mi">81553</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"pf_filing_req_cd"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"organization"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"ntee_cd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"K30"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MEANS DATABASE INC"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"income_cd"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"income_amt"</span><span class="p">:</span><span class="w"> </span><span class="mi">81553</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"ico"</span><span class="p">:</span><span class="w"> </span><span class="s2">"% MARIA ROSE BELDING"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"group"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"foundation"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"filing_req_cd"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"ein"</span><span class="p">:</span><span class="w"> </span><span class="s2">"474262060"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"deductibility"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"classification"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WASHINGTON"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"asset_cd"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"asset_amt"</span><span class="p">:</span><span class="w"> </span><span class="mi">31245</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"affiliation"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"activity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"acct_pd"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
+  </span><span class="p">},</span><span class="w"> 
+  </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20006-1631"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"tax_period"</span><span class="p">:</span><span class="w"> </span><span class="mi">201712</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"subsection"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Main Street"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DC"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"sort_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"ruling"</span><span class="p">:</span><span class="w"> </span><span class="mi">201602</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"revenue_amt"</span><span class="p">:</span><span class="w"> </span><span class="mi">81553</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"pf_filing_req_cd"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"organization"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"ntee_cd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"K30"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fake Organization"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"income_cd"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"income_amt"</span><span class="p">:</span><span class="w"> </span><span class="mi">81553</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"ico"</span><span class="p">:</span><span class="w"> </span><span class="s2">"% Executive Director Name"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"group"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"foundation"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"filing_req_cd"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"ein"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"deductibility"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"classification"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WASHINGTON"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"asset_cd"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"asset_amt"</span><span class="p">:</span><span class="w"> </span><span class="mi">31245</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"affiliation"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"activity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"acct_pd"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">  
+</span></code></pre></div>
+<blockquote>
+<p>No results returns an empty list</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint permits listing organizations. The parameter &quot;since&quot; is required. </p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.charityapi.org/api/organizations?since=YYYY-MM-DD</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>since</td>
+<td>N/A</td>
+<td>Required. You can query for all organizations that have been added to the IRS Publication 78 Business Master File since a given date by providing the date in the &quot;since&quot; query param. The parameter must be an iso8601 formatted date in the format YYYY-MM-DD. For example, use &quot;2025-01-30&quot; to query all organizations added after January 30th, 2025. Because the IRS updates date only once a month, we recommend only querying for new updates once a week and a lookback period of a month to ensure your database receives all incremental additions. Each new monthly publication includes approximately 7,000 new organizations, but each month varies.</td>
+</tr>
+</tbody></table>
+<h2 id='get-nonprofit-by-ein'>Get Nonprofit By EIN</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.charityapi.org/api/organizations/:ein"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"apikey: apikeyhere"</span>
 </code></pre></div>
 <blockquote>
@@ -494,9 +591,9 @@ These are not real keys.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves a single nonprofit entry from the currently listed nonprofits in the IRS&#39;s Business Master File, indicating they are a nonprofit. This will return both charities and other nonprofits, like political organizations and insurance organizations.</p>
-<h3 id='http-request'>HTTP Request</h3>
+<h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://api.charityapi.org/api/organizations/:ein</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -549,7 +646,7 @@ These are not real keys.
 
 </span></code></pre></div>
 <p>The special <code>/api/organizations/schema</code> endpoint returns a minimal data dictionary, or field explanation for the organization attributes. This endpoint is designed to make it a little easier to integrate and understand the data elements as a developer, but is not suitable for displaying information to users in production. This data is straight from the <a href="https://www.irs.gov/pub/irs-soi/eo_info.pdf">IRS explanation</a>.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET https://api.charityapi.org/api/organizations/schema</code></p>
 <h1 id='public-charity-check'>Public Charity Check</h1><h2 id='charity-check-api'>Charity Check API</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.charityapi.org/api/public_charity_check/:ein"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"apikey: apikeyhere"</span>
@@ -577,9 +674,9 @@ These are not real keys.
 <p>This public charity check makes it simple to confirm whether or not a tax ID number is a real charity and tax deductible. Send the API the tax ID number and it will respond with a simple true/false indicating that organization&#39;s current status.</p>
 
 <p><a href="https://www.charityapi.org/post/charity-data-api">Blog Post Introducing the simple Charity Check API</a></p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET https://api.charityapi.org/api/public_charity_check/:ein</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -648,9 +745,9 @@ These are not real keys.
 <p>This searches the nonprofit &quot;name&quot; and &quot;sort_name&quot; fields. Organizations whose charitable status has lapsed will not appear in search results.</p>
 
 <p>You may optionally filter results further by providing &quot;city&quot; and &quot;state&quot; parameters. </p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET https://api.charityapi.org/api/organizations/search/:term</code></p>
-<h3 id='query-parameters-3'>Query Parameters</h3>
+<h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -710,9 +807,9 @@ The autocomplete endpoint is only available to paying accounts.
 <p>You must provide at least 3 characters before results will be returned.</p>
 
 <p>If you require more information about a charity, use the organizations endpoint: <code>GET https://api.charityapi.org/api/organizations/:ein</code></p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET https://api.charityapi.org/api/organizations/autocomplete/:term</code></p>
-<h3 id='query-parameters-4'>Query Parameters</h3>
+<h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -807,7 +904,7 @@ The autocomplete endpoint is only available to paying accounts.
 </tbody></table>
 
 <p>The same data import may appear in multiple keys; for example if it is both the most recent and complete data import.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET https://api.charityapi.org/api/dataimports/recent</code></p>
 <h2 id='get-data-import-by-id'>Get Data Import By ID</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.charityapi.org/api/dataimports/:id"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"apikey: apikeyhere"</span>
@@ -872,7 +969,7 @@ The autocomplete endpoint is only available to paying accounts.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retrieve a dataimport by its ID. </p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET https://api.charityapi.org/api/dataimports/:id</code></p>
 <h1 id='ntee-codes'>NTEE Codes</h1><h2 id='list-ntee-codes'>List NTEE Codes</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.charityapi.org/api/ntee_codes"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"apikey: apikeyhere"</span>
@@ -902,7 +999,7 @@ The autocomplete endpoint is only available to paying accounts.
 
 </span></code></pre></div>
 <p>Lists all NTEE Codes observed in IRS data. Many codes do not have corresponding metadata. There are many NTEE codes, making this a particularly large json response. </p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>GET https://api.charityapi.org/api/ntee_codes</code></p>
 <h2 id='get-ntee-category-by-code'>Get NTEE category By Code</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.charityapi.org/api/ntee_codes/:code"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"apikey: apikeyhere"</span>
@@ -931,7 +1028,7 @@ The autocomplete endpoint is only available to paying accounts.
 <p>Nonprofits choose the most appropriate code for their activities, and the IRS provides this code in the publication 78 data (tax exempt entities). </p>
 
 <p>For each organization, you will see a <code>ntee_cd</code> NTEE code field that you can then use to lookup the NTEE code for the organization. </p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>GET https://api.charityapi.org/api/ntee_codes/:code</code></p>
 <h1 id='errors'>Errors</h1>
 <blockquote>
