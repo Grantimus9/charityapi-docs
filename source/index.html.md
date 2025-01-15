@@ -66,6 +66,101 @@ These are not real keys.
 
 # Organizations
 
+## List Nonprofits
+
+```shell
+curl "https://api.charityapi.org/api/organizations?since=2025-01-01" \
+  -H "apikey: apikeyhere"
+```
+
+> Successful response is a list of organizations
+
+```json
+{
+  "data": [{
+     "zip": "20006-1631",
+     "tax_period": 201712,
+     "subsection": 3,
+     "street": "1629 K ST NW STE 300",
+     "status": 1,
+     "state": "DC",
+     "sort_name": null,
+     "ruling": 201602,
+     "revenue_amt": 81553,
+     "pf_filing_req_cd": 0,
+     "organization": 1,
+     "ntee_cd": "K30",
+     "name": "MEANS DATABASE INC",
+     "income_cd": 3,
+     "income_amt": 81553,
+     "ico": "% MARIA ROSE BELDING",
+     "group": 0,
+     "foundation": 15,
+     "filing_req_cd": 1,
+     "ein": "474262060",
+     "deductibility": 1,
+     "classification": 1000,
+     "city": "WASHINGTON",
+     "asset_cd": 3,
+     "asset_amt": 31245,
+     "affiliation": 3,
+     "activity": 0,
+     "acct_pd": 12
+  }, 
+  {
+     "zip": "20006-1631",
+     "tax_period": 201712,
+     "subsection": 3,
+     "street": "123 Main Street",
+     "status": 1,
+     "state": "DC",
+     "sort_name": null,
+     "ruling": 201602,
+     "revenue_amt": 81553,
+     "pf_filing_req_cd": 0,
+     "organization": 1,
+     "ntee_cd": "K30",
+     "name": "Fake Organization",
+     "income_cd": 3,
+     "income_amt": 81553,
+     "ico": "% Executive Director Name",
+     "group": 0,
+     "foundation": 15,
+     "filing_req_cd": 1,
+     "ein": "123456789",
+     "deductibility": 1,
+     "classification": 1000,
+     "city": "WASHINGTON",
+     "asset_cd": 3,
+     "asset_amt": 31245,
+     "affiliation": 3,
+     "activity": 0,
+     "acct_pd": 12
+  }
+  ]
+}  
+```
+
+> No results returns an empty list
+
+```json
+{
+    "data": []
+}
+```
+
+This endpoint permits listing organizations. The parameter "since" is required. 
+
+### HTTP Request
+
+`GET https://api.charityapi.org/api/organizations?since=YYYY-MM-DD`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+since | N/A | Required. You can query for all organizations that have been added to the IRS Publication 78 Business Master File since a given date by providing the date in the "since" query param. The parameter must be an iso8601 formatted date in the format YYYY-MM-DD. For example, use "2025-01-30" to query all organizations added after January 30th, 2025. Because the IRS updates date only once a month, we recommend only querying for new updates once a week and a lookback period of a month to ensure your database receives all incremental additions. Each new monthly publication includes approximately 7,000 new organizations, but each month varies. 
+
 ## Get Nonprofit By EIN
 
 ```shell
